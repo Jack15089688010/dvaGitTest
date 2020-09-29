@@ -28,7 +28,6 @@ function IndexPage({dispatch, products, dataList}) {
 IndexPage.propTypes = {
 };
 const modelProps = (state) => {
-  console.log(state);
   return {
     products: state.namespaceModel.products,
     dataList: state.namespaceModel.dataList

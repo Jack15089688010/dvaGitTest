@@ -25,9 +25,6 @@ export default {
 }
 
 async function testAsync(param){
-  debugger
-  let data = await setTimeout(function () {
-    return param + 1
-  }, 1000);
-  return data
+    param +=10
+    return param
 }
