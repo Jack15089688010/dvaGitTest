@@ -3,7 +3,7 @@ import { connect } from 'dva';
 import styles from './IndexPage.css';
 
 function IndexPage({dispatch, products, dataList}) {
-  console.log(products,"D盘1");
+  console.log(products,"D盘2");
   return (
     <div className={styles.normal}>
       {
