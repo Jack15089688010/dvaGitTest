@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
 
 function IndexPage({dispatch, products, dataList}) {
   console.log(products,"F盘2",'test');
+  let [count, setCount] = useState(0)
+
+  useEffect(() => {
+    console.log('effect');
+  },[])
   return (
     <div className={styles.normal}>
       {
@@ -21,6 +26,10 @@ function IndexPage({dispatch, products, dataList}) {
           payload: 999
         })
       }}>dispatch</button>
+      <div>{count}</div>
+      <button onClick={() => {
+        setCount( count + 1 )
+      }}>setCount</button>
     </div>
   );
 }
