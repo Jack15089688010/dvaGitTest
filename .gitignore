@@ -5,6 +5,7 @@
 
 # production
 /dist
+/src/routes/IndexPage.css
 
 # misc
 .DS_Store
