@@ -3,12 +3,7 @@ import { connect } from 'dva';
 import styles from './IndexPage.css';
 
 function IndexPage({dispatch, products, dataList}) {
-  console.log(products,"F盘2",'test');
-  let [count, setCount] = useState(0)
-
-  useEffect(() => {
-    console.log('effect');
-  },[])
+  console.log(products,"F盘",'test');
   return (
     <div className={styles.normal}>
       {
