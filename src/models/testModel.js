@@ -15,16 +15,20 @@ export default {
   },
   effects:{
     *addAsync({ payload }, { call, put }){
-      let newdata = yield call(testAsync,payload)
+      let promise = yield call(testAsync,payload)
       yield put({
         type: 'add',
-        payload: newdata
+        payload: promise
       })
     }
   }
 }
 
-async function testAsync(param){
-    param +=10
-    return param
+ async  function testAsync(param){
+    var promise = new Promise(( resolve, reject ) => {
+      setTimeout(function () {
+        resolve(param + 1000)
+      }, 3000);
+    })
+    return promise
 }

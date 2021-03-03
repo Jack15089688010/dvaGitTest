@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
+import {ListHook} from './defineHook'
 
 function IndexPage({dispatch, products, dataList}) {
   console.log(products,"F盘2",'masterBranch');
+  const [count, setCount] = useState(0)
+  const [price, setPrice] = useState(0)
+
+  useEffect(() => {
+    console.log('useEffect');
+  },[])
+
+  let countMemo = useMemo(() => {
+    console.log('memo');
+    return count
+  },[count])
+
+  let callBack = useCallback(() => {
+    return count
+  })
+
+
+
+
   return (
     <div className={styles.normal}>
       {
@@ -21,6 +41,16 @@ function IndexPage({dispatch, products, dataList}) {
           payload: 999
         })
       }}>dispatch</button>
+      <div>{callBack()}</div>
+      <button onClick={() => {
+        setCount( count + 1 )
+      }}>setCount</button>
+      <button onClick={() => {
+        setPrice( price + 1 )
+      }}>setPrice</button>
+      <div>-----------</div>
+
+      <ListHook />
     </div>
   );
 }
@@ -28,6 +58,7 @@ function IndexPage({dispatch, products, dataList}) {
 IndexPage.propTypes = {
 };
 const modelProps = (state) => {
+  console.log('444')
   return {
     products: state.namespaceModel.products,
     dataList: state.namespaceModel.dataList
