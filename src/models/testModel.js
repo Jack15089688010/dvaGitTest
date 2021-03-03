@@ -28,7 +28,7 @@ export default {
     var promise = new Promise(( resolve, reject ) => {
       setTimeout(function () {
         resolve(param + 1000)
-      }, 1000);
+      }, 3000);
     })
     return promise
 }
